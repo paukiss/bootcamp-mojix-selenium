@@ -1,4 +1,4 @@
-package page.todoly.todoly;
+package testSuite.todoly;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

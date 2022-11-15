@@ -1,4 +1,4 @@
-package page.todoly.todoly;
+package testSuite.todoly;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
