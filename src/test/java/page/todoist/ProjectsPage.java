@@ -19,4 +19,9 @@ public class ProjectsPage {
         projectCreated.click();
     }
 
+    public void selectNameProjectToAddTask(String nameProject){
+        Button nameProjectSelected = new Button(By.xpath("//div[text()='"+nameProject+"']"));
+        nameProjectSelected.click();
+    }
+
 }

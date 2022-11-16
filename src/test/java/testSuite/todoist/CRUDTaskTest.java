@@ -1,37 +1,49 @@
 package testSuite.todoist;
 
+import control.Button;
+import control.TextArea;
+import control.TextBox;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
-public class CRUDProjectTest extends TestBase{
+public class CRUDTaskTest extends TestBase{
     @Test
     public void test(){
-        String email = "sergio_mojix@bootcamp.com";
-        String pass = "123456789abc";
+        String projectName = "project Sergio task3";
+        String newTaskName = "Task 1";
+        String newTaskDescription = "This task is about bootcamp QA";
+        String updateTaskName = "Update task";
+        String updateDescriptionTask = "Update task of QA";
 
         loginSession.loginButton.click();
-        loginPageSession.emailTxt.setText(email);
+        loginPageSession.emailTxt.setText(user);
         loginPageSession.pwdTxt.setText(pass);
         loginPageSession.loginButton.click();
         mainPage.projectLabel.waitControlIsNotVisibleElement();
         Assertions.assertTrue(mainPage.projectLabel.isControlDisplayed(), "Error! Log in failed");
 
-        String nameProject = "nuevo project sergio";
         projectsPage.newProject.click();
-        projectsPage.addProject.click();
-        projectsPage.nameProject.setText(nameProject);
-        projectsPage.addNewProject.click();
-        Assertions.assertFalse(projectsPage.addNewProject.isControlDisplayed(), "Error! Project was not created");
+        projectsPage.selectNameProjectToAddTask(projectName);
+        Assertions.assertTrue(projectPageTask.plusAddTask.isControlDisplayed(), "Error! The project doesnt exist");
 
-        String updateNameProject = "update name project";
-        projectsPage.clickOnNameProject(nameProject);
-        projectsPage.newNameProject.cleanSetText(updateNameProject);
-        projectsPage.saveProject.click();
-        Assertions.assertFalse(projectsPage.saveProject.isControlDisplayed(), "Error! Project was not updated");
+        projectPageTask.plusAddTask.click();
+        projectPageTask.taskName.setText(newTaskName);
+        projectPageTask.description.setText(newTaskDescription);
+        projectPageTask.addTask.click();
+        Assertions.assertTrue(editTask.taskNameList.isControlDisplayed(), "Error! The task was not created");
 
-        optionsProjectPage.optionsProject.click();
-        optionsProjectPage.deleteOption.click();
-        optionsProjectPage.confirmDelete.click();
-        Assertions.assertEquals(projectsPage.nameProjectHeader.getText(), "Inbox", "Error! Project was not deleted");
+        editTask.taskNameList.click();
+        editTask.nameTaskActivate.click();
+        editTask.nameTask.waitControlIsNotVisibleElement();
+        editTask.nameTask.setText(updateTaskName);
+        editTask.descriptionTask.cleanSetText(updateDescriptionTask);
+        editTask.saveTask.click();
+        Assertions.assertTrue(optionsTask.optionsTask.isControlDisplayed(), "Error! The task was not updated");
+
+        optionsTask.optionsTask.click();
+        optionsTask.deleteTask.click();
+        optionsTask.confirmDeleteTask.click();
+        Assertions.assertTrue(projectPageTask.plusAddTask.isControlDisplayed(), "Error! The task was not deleted");
     }
 }

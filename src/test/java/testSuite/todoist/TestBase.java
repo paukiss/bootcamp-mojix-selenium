@@ -12,6 +12,9 @@ public class TestBase {
     LoginSession loginSession = new LoginSession();
     OptionsProjectPage optionsProjectPage = new OptionsProjectPage();
     ProjectsPage projectsPage = new ProjectsPage();
+    ProjectPageTask projectPageTask = new ProjectPageTask();
+    EditTask editTask = new EditTask();
+    OptionsTask optionsTask = new OptionsTask();
     String user = GetProperties.getInstance().getUser();
     String pass = GetProperties.getInstance().getPass();
 
