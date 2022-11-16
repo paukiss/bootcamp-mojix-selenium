@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class CRUDProjectTest extends TestBase{
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
         String nameProject = "nuevo project sergio";
         String updateNameProject = "update name project";
 
