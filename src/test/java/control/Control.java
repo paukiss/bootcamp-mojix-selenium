@@ -46,7 +46,7 @@ public class Control {
     }
 
     public void waitControlIsNotVisibleElement (){
-        WebDriverWait explicitWait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(5));
+        WebDriverWait explicitWait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(60));
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(this.locator));
     }
 

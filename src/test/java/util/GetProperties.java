@@ -14,7 +14,7 @@ public class GetProperties {
 
     private GetProperties(){
         Properties properties = new Properties();
-        String nameFile = "todoly.properties";
+        String nameFile = "todoist.properties";
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(nameFile);
         if (inputStream != null){
             try {
